@@ -1,5 +1,6 @@
 
 let navbar = document.querySelector('.navbar')
+let navbarBtn = document.querySelector('.fa-bars')
 const banner = document.querySelector('.banner__container')
 
 const carousel = document.querySelector('.carousel__wrapper')
@@ -69,14 +70,17 @@ const portfoioData = [
 
 
 document.addEventListener('scroll', () => {
-    if(window.scrollY === 0){
-        navbar.style.height = '100px'
-        navbar.style.backgroundColor = 'transparent'
-    } else if(window.scrollY !== 0) {
-        navbar.style.height = '70px';
-        navbar.style.backgroundColor = '#000000d5'
+    if (window.innerWidth > '800') {
+        if (window.scrollY === 0) {
+            navbar.style.height = '100px'
+            navbar.style.backgroundColor = 'transparent'
+        } else if (window.scrollY !== 0) {
+            navbar.style.height = '70px';
+            navbar.style.backgroundColor = '#000000d5'
+        }
     }
 })
+
 
 
 navbarItems.forEach(i => {
@@ -86,7 +90,7 @@ navbarItems.forEach(i => {
         navbarItems.forEach(i => {
             i.classList.remove('active')
         })
-        
+
         i.classList.add('active')
 
         var targetId = i.getAttribute('href').substring(1);
@@ -96,6 +100,16 @@ navbarItems.forEach(i => {
         });
     })
 })
+
+navbarBtn.addEventListener('click', () => {
+    if (navbar.classList.contains("expanded-div")) {
+        navbar.classList.remove("expanded-div");
+      } else {
+        navbar.classList.add("expanded-div");
+      }
+})
+
+
 
 
 prev.addEventListener('click', () => {
@@ -110,19 +124,19 @@ function nextSlide() {
     swiper.style.transform = 'translateX(-100%)'
 }
 
-next.addEventListener('click', function() {
+next.addEventListener('click', function () {
     nextSlide()
 })
 
-let time = setTimeout(() => {
-    nextSlide()
-}, 3000);
+// let time = setInterval(() => {
+//     nextSlide()
+// }, 3000);
 
 swiper.addEventListener('transitionend', () => {
 
-    if(direction === -1){
+    if (direction === -1) {
         swiper.appendChild(swiper.firstElementChild)
-    } else if(direction === 1){
+    } else if (direction === 1) {
         swiper.prepend(swiper.lastElementChild)
     }
 
@@ -175,7 +189,7 @@ function updatePortfolio(category) {
             imgDesc.innerHTML = `Portfolio Item ${item.id} <br> ${item.category}`;
             portfolioItem.appendChild(imgDesc);
         });
-        
+
         portfolioItem.addEventListener('mouseleave', () => {
             portfolioItem.classList.remove('img__hover');
             const imgDesc = portfolioItem.querySelector('.img__desc');
