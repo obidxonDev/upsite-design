@@ -11,6 +11,7 @@ body {
 
 
 .footer-wrapper,
+#about,
 #why-us,
 #portfolio {
     display: none;
@@ -1444,6 +1445,18 @@ swiper-container {
         color: gray;
     }
 
+    .third__section{
+        background-position: top;
+    }
+    
+    .text__content h3{
+        font-size: 20px;
+        width: 400px;
+    }
+    .text__content p{
+        font-size: 15px;
+    }
+
 }
 
 @media screen and (max-width: 700px) {
@@ -1503,7 +1516,7 @@ swiper-container {
     }
     .second-p-element{
         font-size: 10px;
-        width: 200px;
+        width: 400px;
     }
     .second-h2-element{
         font-size: 20px;
@@ -1551,13 +1564,22 @@ swiper-container {
     .second__section{
         border: 1px solid red;
     }
+
      .second__section > section h2{
        font-size: 20px; 
     }
     .second__section section:first-child > p{
-        font-size: 14px;
+        font-size: 12px;
         width: 300px;
-        margin-left: 30px;
+    }
+
+    .six__section{
+        padding: 0px 20px;
+    }
+
+    .text__content h3{
+        width: 300px;
+        font-size: 15px;
     }
     
 }
@@ -1567,5 +1589,8 @@ swiper-container {
     .slider3-second{
         font-size: 12px;
         width: 250px;
+    }
+    .seven__section{
+        border: 1px solid red;
     }
 }
